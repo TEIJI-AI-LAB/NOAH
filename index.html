@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#030814">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NOAH">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>NOAH by TEIJI — Genesis</title>
+<style>
+:root{--bg:#030814;--bg2:#071425;--ink:#F5FDFF;--muted:#8BA8B7;--glow:#9CF5FF}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
+body{min-height:100svh;overflow:hidden}
+.screen{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:max(env(safe-area-inset-top),24px) 24px max(env(safe-area-inset-bottom),24px);background:radial-gradient(circle at 50% 38%,rgba(32,172,211,.13),transparent 24%),radial-gradient(circle at 50% 88%,rgba(51,94,153,.15),transparent 36%),linear-gradient(180deg,var(--bg),var(--bg2));isolation:isolate}
+.stars,.stars::before,.stars::after{content:"";position:absolute;inset:-80px;z-index:-2;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.86) 0 1px,transparent 1.6px),radial-gradient(circle,rgba(117,231,255,.50) 0 1px,transparent 1.6px);background-size:89px 89px,137px 137px;background-position:10px 20px,40px 8px;opacity:.25;animation:drift 26s linear infinite}
+.stars::before{opacity:.13;transform:scale(1.25);animation-duration:38s}
+.stars::after{opacity:.18;transform:scale(.8);animation-duration:31s}
+@keyframes drift{to{background-position:99px 109px,177px 145px}}
+.orb{position:absolute;z-index:-1;width:310px;height:310px;border-radius:50%;background:radial-gradient(circle,rgba(115,240,255,.18),rgba(46,160,206,.05) 42%,transparent 73%);filter:blur(10px);animation:breathe 5s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.08);opacity:.72}}
+.content{width:min(100%,430px);text-align:center;transform:translateY(-2vh)}
+.spark{width:20px;height:20px;margin:0 auto 28px;transform:rotate(45deg);border-radius:5px;background:linear-gradient(135deg,#fff,#9CF5FF);box-shadow:0 0 18px #fff,0 0 42px #4ED9EC;animation:spark 3.2s ease-in-out infinite}
+@keyframes spark{50%{transform:rotate(45deg) scale(.72);opacity:.72}}
+.brand{margin:0;font-size:clamp(44px,13vw,68px);font-weight:300;letter-spacing:.16em;text-indent:.16em;line-height:1;text-shadow:0 0 28px rgba(137,240,255,.14)}
+.by{margin-top:12px;color:var(--muted);font-size:12px;letter-spacing:.30em;text-indent:.30em;text-transform:uppercase}
+.rule{width:46px;height:1px;background:linear-gradient(90deg,transparent,var(--glow),transparent);margin:34px auto 28px;opacity:.68}
+.message{margin:0;color:#DDF8FC;font-size:17px;line-height:1.9;letter-spacing:.035em}
+.vision{margin-top:20px;color:var(--muted);font-size:12px;line-height:1.7;letter-spacing:.025em}
+.build{position:absolute;bottom:max(22px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:rgba(160,193,207,.62);font-size:10px;letter-spacing:.15em}
+.build b{font-weight:600;color:rgba(197,235,244,.78)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<main class="screen">
+<div class="stars" aria-hidden="true"></div>
+<div class="orb" aria-hidden="true"></div>
+<section class="content" aria-label="NOAH Genesis">
+<div class="spark" aria-hidden="true"></div>
+<h1 class="brand">NOAH</h1>
+<div class="by">by TEIJI</div>
+<div class="rule"></div>
+<p class="message">未来から届いた、<br>小さな安心。</p>
+<p class="vision">ひとりじゃない。<br>その隣に、NOAH。</p>
+</section>
+<footer class="build"><b>BUILD 0.1</b> · GENESIS</footer>
+</main>
+<script>
+if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("./sw.js").catch(()=>{});});}
+</script>
+</body>
+</html>
