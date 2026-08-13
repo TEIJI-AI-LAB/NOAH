@@ -9,291 +9,120 @@
 <meta name="apple-mobile-web-app-title" content="NOAH">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>NOAH by TEIJI — Eye Contact</title>
-
+<title>NOAH by TEIJI</title>
 <style>
-:root{
-  --bg:#020611;
-  --bg2:#061425;
-  --ink:#F6FDFF;
-  --muted:#8BA8B7;
-  --glow:#A7F7FF;
-}
+:root{--bg:#020611;--bg2:#061425}
 *{box-sizing:border-box}
 html,body{
-  margin:0;
-  min-height:100%;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;
+  margin:0;min-height:100%;background:var(--bg);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif
 }
-body{
-  min-height:100svh;
-  overflow:hidden;
-  -webkit-tap-highlight-color:transparent;
-}
+body{min-height:100svh;overflow:hidden;-webkit-tap-highlight-color:transparent}
 .screen{
-  position:relative;
-  min-height:100svh;
-  overflow:hidden;
+  position:relative;min-height:100svh;overflow:hidden;isolation:isolate;
   background:
-    radial-gradient(circle at 50% 43%,rgba(96,220,240,.14),transparent 30%),
-    radial-gradient(circle at 50% 83%,rgba(50,92,154,.17),transparent 40%),
+    radial-gradient(circle at 50% 43%,rgba(91,214,238,.13),transparent 30%),
+    radial-gradient(circle at 50% 82%,rgba(43,82,143,.18),transparent 40%),
     linear-gradient(180deg,var(--bg),var(--bg2));
-  isolation:isolate;
 }
-
-/* Background stars */
 .stars,.stars::before,.stars::after{
-  content:"";
-  position:absolute;
-  inset:-100px;
-  z-index:-3;
-  pointer-events:none;
+  content:"";position:absolute;inset:-100px;z-index:-3;pointer-events:none;
   background-image:
-    radial-gradient(circle,rgba(255,255,255,.9) 0 1px,transparent 1.6px),
-    radial-gradient(circle,rgba(119,232,255,.55) 0 1px,transparent 1.6px);
-  background-size:91px 91px,143px 143px;
+    radial-gradient(circle,rgba(255,255,255,.88) 0 1px,transparent 1.6px),
+    radial-gradient(circle,rgba(119,232,255,.48) 0 1px,transparent 1.6px);
+  background-size:93px 93px,149px 149px;
   background-position:12px 26px,46px 10px;
-  opacity:.20;
-  animation:drift 32s linear infinite;
+  opacity:.18;animation:drift 34s linear infinite
 }
-.stars::before{opacity:.10;transform:scale(1.28);animation-duration:44s}
-.stars::after{opacity:.16;transform:scale(.82);animation-duration:37s}
-@keyframes drift{
-  to{background-position:103px 117px,189px 153px}
-}
+.stars::before{opacity:.09;transform:scale(1.28);animation-duration:47s}
+.stars::after{opacity:.14;transform:scale(.82);animation-duration:39s}
+@keyframes drift{to{background-position:105px 119px,195px 159px}}
 
 .light{
-  position:absolute;
-  z-index:-2;
-  left:50%;
-  top:47%;
-  width:min(112vw,600px);
-  aspect-ratio:1/1;
-  transform:translate(-50%,-50%);
-  border-radius:50%;
-  background:
-    radial-gradient(circle,
-      rgba(199,251,255,.24) 0%,
-      rgba(80,219,239,.13) 25%,
-      rgba(26,133,188,.055) 48%,
-      transparent 73%);
-  filter:blur(7px);
-  animation:breatheLight 5.5s ease-in-out infinite;
+  position:absolute;z-index:-2;left:50%;top:47%;
+  width:min(116vw,620px);aspect-ratio:1/1;
+  transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,
+    rgba(188,249,255,.20) 0%,
+    rgba(73,214,237,.10) 27%,
+    rgba(23,116,169,.045) 50%,
+    transparent 74%);
+  filter:blur(10px);animation:breatheLight 5.8s ease-in-out infinite
 }
 @keyframes breatheLight{
-  50%{transform:translate(-50%,-50%) scale(1.055);opacity:.78}
+  50%{transform:translate(-50%,-50%) scale(1.055);opacity:.77}
 }
 
-/* Character viewport */
 .noah-window{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden
 }
-
-/*
-  Important:
-  We use the approved NOAH artwork from First Light.
-  Start very close to the face. After the gaze and blink,
-  the "camera" slowly pulls back to the full body.
-*/
 .noah{
-  width:min(88vw,430px);
-  max-width:none;
-  height:auto;
+  width:min(90vw,440px);height:auto;max-width:none;
   transform-origin:50% 37%;
   opacity:0;
-  filter:blur(5px) drop-shadow(0 0 30px rgba(153,244,255,.19));
+  filter:drop-shadow(0 0 24px rgba(158,244,255,.18))
+         drop-shadow(0 0 50px rgba(75,192,229,.10));
   animation:
-    arrive .95s ease-out .25s forwards,
-    eyeContact 4.1s cubic-bezier(.18,.78,.19,1) 1.15s forwards,
-    float 5.7s ease-in-out 5.35s infinite;
-  will-change:transform,filter,opacity;
+    arrive .9s ease-out .22s forwards,
+    eyeContact 4.25s cubic-bezier(.18,.78,.19,1) 1.08s forwards,
+    float 5.8s ease-in-out 5.45s infinite;
+  will-change:transform,opacity
 }
 @keyframes arrive{
-  from{opacity:0;filter:blur(9px);transform:scale(2.62)}
-  to{opacity:1;filter:blur(0) drop-shadow(0 0 30px rgba(153,244,255,.19));transform:scale(2.62)}
+  from{opacity:0;transform:scale(2.66)}
+  to{opacity:1;transform:scale(2.66)}
 }
 @keyframes eyeContact{
-  0%{transform:scale(2.62)}
-  50%{transform:scale(2.62)}
-  60%{transform:scale(2.60)}
-  100%{transform:scale(1.00)}
+  0%,52%{transform:scale(2.66)}
+  62%{transform:scale(2.62)}
+  100%{transform:scale(1)}
 }
 @keyframes float{
   50%{transform:translateY(-7px) scale(1.006)}
 }
 
-/* simulated soft blink shadow over both eyes */
-.blink{
-  position:absolute;
-  left:50%;
-  top:38.7%;
-  width:min(61vw,290px);
-  height:min(17vw,82px);
-  transform:translate(-50%,-50%) scaleY(0);
-  transform-origin:center;
-  border-radius:50%;
-  background:rgba(236,252,255,.68);
-  filter:blur(7px);
-  mix-blend-mode:screen;
-  opacity:0;
-  pointer-events:none;
-  animation:blinkMoment .55s ease 3.25s 1;
-}
-@keyframes blinkMoment{
-  0%{opacity:0;transform:translate(-50%,-50%) scaleY(0)}
-  42%{opacity:.48;transform:translate(-50%,-50%) scaleY(.22)}
-  55%{opacity:.48;transform:translate(-50%,-50%) scaleY(.22)}
-  100%{opacity:0;transform:translate(-50%,-50%) scaleY(0)}
-}
-
-/* a single "meeting" shooting star inside the scene */
+/* one subtle shooting star = "recognition" */
 .meeting-star{
-  position:absolute;
-  left:58%;
-  top:29%;
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:white;
-  box-shadow:0 0 9px white,0 0 22px #9CF5FF;
-  opacity:0;
-  transform:rotate(-35deg);
-  animation:meetingStar 1.25s ease-out 2.45s 1;
+  position:absolute;left:58%;top:28%;width:4px;height:4px;border-radius:50%;
+  background:#fff;box-shadow:0 0 9px #fff,0 0 22px #9cf5ff;
+  opacity:0;transform:rotate(-35deg);
+  animation:meetingStar 1.25s ease-out 2.45s 1
 }
 .meeting-star::after{
-  content:"";
-  position:absolute;
-  right:3px;
-  top:2px;
-  width:38px;
-  height:1px;
-  background:linear-gradient(90deg,transparent,rgba(207,251,255,.75));
+  content:"";position:absolute;right:3px;top:2px;width:34px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(207,251,255,.72))
 }
 @keyframes meetingStar{
   0%{opacity:0;transform:translate(0,0) rotate(-35deg)}
   20%{opacity:1}
-  100%{opacity:0;transform:translate(46px,-29px) rotate(-35deg)}
+  100%{opacity:0;transform:translate(43px,-27px) rotate(-35deg)}
 }
 
-.brand{
-  position:absolute;
-  z-index:2;
-  top:max(26px,calc(env(safe-area-inset-top) + 10px));
-  left:0;right:0;
-  text-align:center;
-  opacity:0;
-  animation:brandIn .9s ease 5.15s forwards;
-}
-.brand strong{
-  display:block;
-  font-size:13px;
-  letter-spacing:.22em;
-  font-weight:600;
-}
-.brand span{
-  display:block;
-  margin-top:4px;
-  color:var(--muted);
-  font-size:9px;
-  letter-spacing:.28em;
-}
-@keyframes brandIn{to{opacity:1}}
-
-.caption{
-  position:absolute;
-  z-index:2;
-  left:20px;right:20px;
-  bottom:max(39px,calc(env(safe-area-inset-bottom) + 30px));
-  text-align:center;
-  opacity:0;
-  transform:translateY(8px);
-  animation:captionIn 1s ease 5.3s forwards;
-}
-.caption .chapter{
-  color:#BEEFF5;
-  font-size:10px;
-  letter-spacing:.25em;
-  margin-bottom:10px;
-}
-.caption p{
-  margin:0;
-  color:var(--muted);
-  font-size:11px;
-  letter-spacing:.035em;
-  line-height:1.7;
-}
-@keyframes captionIn{
-  to{opacity:1;transform:translateY(0)}
-}
-
-.build{
-  position:absolute;
-  z-index:2;
-  right:14px;
-  bottom:max(10px,env(safe-area-inset-bottom));
-  color:rgba(160,193,207,.42);
-  font-size:8px;
-  letter-spacing:.13em;
-}
-
-/* test helper: tap anywhere to replay */
+/* no developer captions or build labels on the experience screen */
 .replay{
-  position:absolute;
-  inset:0;
-  z-index:20;
-  border:0;
-  padding:0;
-  background:transparent;
-  color:transparent;
-  cursor:pointer;
+  position:absolute;inset:0;z-index:20;border:0;padding:0;
+  background:transparent;color:transparent;cursor:pointer
 }
 
-@media (max-height:720px){
-  .noah{width:min(77vw,360px)}
-  .caption{bottom:max(29px,calc(env(safe-area-inset-bottom) + 20px))}
-}
-
+@media (max-height:720px){.noah{width:min(80vw,370px)}}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important}
-  .noah{opacity:1;transform:scale(1);filter:none}
-  .brand,.caption{opacity:1;transform:none}
-  .blink,.meeting-star{display:none}
+  .noah{opacity:1;transform:scale(1)}
+  .meeting-star{display:none}
 }
 </style>
 </head>
-
 <body>
 <main class="screen">
   <div class="stars" aria-hidden="true"></div>
   <div class="light" aria-hidden="true"></div>
 
-  <div class="brand">
-    <strong>NOAH</strong>
-    <span>by TEIJI</span>
-  </div>
-
-  <section class="noah-window" aria-label="NOAH Eye Contact">
-    <img class="noah" src="noah-first-light.png" alt="NOAH">
-    <div class="blink" aria-hidden="true"></div>
+  <section class="noah-window" aria-label="NOAH">
+    <img class="noah" src="noah-immersive.png" alt="NOAH">
     <div class="meeting-star" aria-hidden="true"></div>
   </section>
 
-  <section class="caption">
-    <div class="chapter">EYE CONTACT</div>
-    <p>まだ、言葉はいらない。</p>
-  </section>
-
-  <div class="build">BUILD 0.3 · EYE CONTACT</div>
-
-  <button class="replay" type="button" aria-label="Replay Eye Contact"
-    onclick="location.reload()">Replay</button>
+  <button class="replay" type="button" aria-label="Replay" onclick="location.reload()">Replay</button>
 </main>
 
 <script>

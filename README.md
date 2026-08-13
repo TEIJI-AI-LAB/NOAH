@@ -9,36 +9,27 @@
 ### Build 0.1 — Genesis
 *A dream begins here.*
 
-The foundation of the NOAH web app.
-
 ### Build 0.2 — First Light
 *NOAH appears for the first time.*
 
-NOAH enters the world quietly.
-
 ### Build 0.3 — Eye Contact
-*Before words, there is a moment of recognition.*
+*Before words, there is recognition.*
 
-What changed:
-- NOAH begins screen-filling and very close
-- a silent 2–3 second eye-contact moment
-- one small shooting star marks the meeting
-- a gentle blink
-- camera slowly pulls back to reveal NOAH's full body
-- no dialogue yet
-- tap anywhere to replay during testing
+### Build 0.3.1 — Immersion Fix
+*Show the experience. Never explain the experience.*
 
-### Story
+Refinements:
+- removed the visible rectangular artwork background
+- character is composited into the scene with a cleaner transparency matte
+- removed "EYE CONTACT"
+- removed "まだ、言葉はいらない。"
+- removed build/version labels from the user-facing experience
+- screen is now only NOAH, space, light, and motion
+- retained tap-anywhere replay for development testing
 
-First there was a small light.
+### Design rule
 
-Then NOAH appeared.
-
-Now, for the first time, NOAH looks at you.
-
-No words.
-
-Just a moment.
+If the user can feel it, we do not need to explain it.
 
 ---
 
