@@ -9,48 +9,238 @@
 <meta name="apple-mobile-web-app-title" content="NOAH">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>NOAH by TEIJI — Genesis</title>
+<title>NOAH by TEIJI — First Light</title>
 <style>
-:root{--bg:#030814;--bg2:#071425;--ink:#F5FDFF;--muted:#8BA8B7;--glow:#9CF5FF}
+:root{
+  --bg:#020611;
+  --bg2:#061425;
+  --ink:#F6FDFF;
+  --muted:#8BA8B7;
+  --glow:#9CF5FF;
+}
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
+html,body{
+  margin:0;
+  min-height:100%;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;
+}
 body{min-height:100svh;overflow:hidden}
-.screen{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:max(env(safe-area-inset-top),24px) 24px max(env(safe-area-inset-bottom),24px);background:radial-gradient(circle at 50% 38%,rgba(32,172,211,.13),transparent 24%),radial-gradient(circle at 50% 88%,rgba(51,94,153,.15),transparent 36%),linear-gradient(180deg,var(--bg),var(--bg2));isolation:isolate}
-.stars,.stars::before,.stars::after{content:"";position:absolute;inset:-80px;z-index:-2;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.86) 0 1px,transparent 1.6px),radial-gradient(circle,rgba(117,231,255,.50) 0 1px,transparent 1.6px);background-size:89px 89px,137px 137px;background-position:10px 20px,40px 8px;opacity:.25;animation:drift 26s linear infinite}
-.stars::before{opacity:.13;transform:scale(1.25);animation-duration:38s}
-.stars::after{opacity:.18;transform:scale(.8);animation-duration:31s}
-@keyframes drift{to{background-position:99px 109px,177px 145px}}
-.orb{position:absolute;z-index:-1;width:310px;height:310px;border-radius:50%;background:radial-gradient(circle,rgba(115,240,255,.18),rgba(46,160,206,.05) 42%,transparent 73%);filter:blur(10px);animation:breathe 5s ease-in-out infinite}
-@keyframes breathe{50%{transform:scale(1.08);opacity:.72}}
-.content{width:min(100%,430px);text-align:center;transform:translateY(-2vh)}
-.spark{width:20px;height:20px;margin:0 auto 28px;transform:rotate(45deg);border-radius:5px;background:linear-gradient(135deg,#fff,#9CF5FF);box-shadow:0 0 18px #fff,0 0 42px #4ED9EC;animation:spark 3.2s ease-in-out infinite}
-@keyframes spark{50%{transform:rotate(45deg) scale(.72);opacity:.72}}
-.brand{margin:0;font-size:clamp(44px,13vw,68px);font-weight:300;letter-spacing:.16em;text-indent:.16em;line-height:1;text-shadow:0 0 28px rgba(137,240,255,.14)}
-.by{margin-top:12px;color:var(--muted);font-size:12px;letter-spacing:.30em;text-indent:.30em;text-transform:uppercase}
-.rule{width:46px;height:1px;background:linear-gradient(90deg,transparent,var(--glow),transparent);margin:34px auto 28px;opacity:.68}
-.message{margin:0;color:#DDF8FC;font-size:17px;line-height:1.9;letter-spacing:.035em}
-.vision{margin-top:20px;color:var(--muted);font-size:12px;line-height:1.7;letter-spacing:.025em}
-.build{position:absolute;bottom:max(22px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:rgba(160,193,207,.62);font-size:10px;letter-spacing:.15em}
-.build b{font-weight:600;color:rgba(197,235,244,.78)}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.screen{
+  position:relative;
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:max(env(safe-area-inset-top),20px) 18px max(env(safe-area-inset-bottom),20px);
+  background:
+    radial-gradient(circle at 50% 43%,rgba(89,219,241,.12),transparent 29%),
+    radial-gradient(circle at 50% 78%,rgba(56,98,163,.16),transparent 38%),
+    linear-gradient(180deg,var(--bg),var(--bg2));
+  isolation:isolate;
+}
+.stars,.stars::before,.stars::after{
+  content:"";
+  position:absolute;
+  inset:-80px;
+  z-index:-3;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.90) 0 1px,transparent 1.6px),
+    radial-gradient(circle,rgba(117,231,255,.55) 0 1px,transparent 1.6px);
+  background-size:91px 91px,143px 143px;
+  background-position:12px 26px,46px 10px;
+  opacity:.22;
+  animation:drift 29s linear infinite;
+}
+.stars::before{opacity:.11;transform:scale(1.26);animation-duration:41s}
+.stars::after{opacity:.17;transform:scale(.81);animation-duration:34s}
+@keyframes drift{to{background-position:103px 117px,189px 153px}}
+
+.light{
+  position:absolute;
+  z-index:-2;
+  width:min(96vw,520px);
+  aspect-ratio:1/1;
+  border-radius:50%;
+  background:radial-gradient(circle,
+    rgba(188,250,255,.23) 0%,
+    rgba(74,217,240,.12) 24%,
+    rgba(27,132,186,.06) 46%,
+    transparent 72%);
+  filter:blur(6px);
+  opacity:0;
+  transform:scale(.32);
+  animation:firstLight 3.8s cubic-bezier(.2,.75,.2,1) .4s forwards,
+            breatheLight 5.5s ease-in-out 4.2s infinite;
+}
+@keyframes firstLight{
+  0%{opacity:0;transform:scale(.15)}
+  42%{opacity:.95}
+  100%{opacity:.72;transform:scale(1)}
+}
+@keyframes breatheLight{50%{transform:scale(1.07);opacity:.88}}
+
+.noah-stage{
+  position:relative;
+  width:min(92vw,440px);
+  height:min(70svh,650px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transform:translateY(-2vh);
+}
+.noah{
+  width:min(95%,410px);
+  height:auto;
+  object-fit:contain;
+  opacity:0;
+  transform:translateY(18px) scale(.76);
+  filter:blur(7px) drop-shadow(0 0 22px rgba(143,242,255,.18));
+  animation:
+    reveal 3.2s cubic-bezier(.16,.84,.22,1) 1.15s forwards,
+    float 5.4s ease-in-out 4.45s infinite;
+  will-change:transform,opacity,filter;
+}
+@keyframes reveal{
+  0%{opacity:0;transform:translateY(28px) scale(.68);filter:blur(9px)}
+  45%{opacity:.55;filter:blur(3px)}
+  100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0) drop-shadow(0 0 28px rgba(143,242,255,.20))}
+}
+@keyframes float{50%{transform:translateY(-8px) scale(1.006)}}
+
+.pulse{
+  position:absolute;
+  width:54%;
+  height:9px;
+  bottom:13%;
+  border-radius:50%;
+  background:rgba(105,231,247,.24);
+  filter:blur(10px);
+  opacity:0;
+  animation:shadowIn 1.8s ease 2.3s forwards,shadowPulse 5.4s ease-in-out 4.45s infinite;
+}
+@keyframes shadowIn{to{opacity:.62}}
+@keyframes shadowPulse{50%{transform:scale(.82);opacity:.38}}
+
+.brand{
+  position:absolute;
+  top:max(26px,calc(env(safe-area-inset-top) + 10px));
+  left:0;right:0;
+  text-align:center;
+  opacity:0;
+  transform:translateY(-8px);
+  animation:fade 1s ease 4.05s forwards;
+}
+.brand strong{
+  display:block;
+  font-size:13px;
+  letter-spacing:.22em;
+  font-weight:600;
+}
+.brand span{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:.28em;
+}
+.copy{
+  position:absolute;
+  left:22px;right:22px;
+  bottom:max(50px,calc(env(safe-area-inset-bottom) + 36px));
+  text-align:center;
+  opacity:0;
+  transform:translateY(10px);
+  animation:fade 1.05s ease 4.75s forwards;
+}
+.copy .eyebrow{
+  color:#BEEFF5;
+  font-size:10px;
+  letter-spacing:.23em;
+  margin-bottom:11px;
+}
+.copy h1{
+  margin:0;
+  font-size:19px;
+  line-height:1.75;
+  font-weight:500;
+  letter-spacing:.04em;
+}
+.copy p{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:11px;
+  letter-spacing:.035em;
+}
+.build{
+  position:absolute;
+  right:16px;
+  bottom:max(13px,env(safe-area-inset-bottom));
+  color:rgba(160,193,207,.48);
+  font-size:8px;
+  letter-spacing:.13em;
+}
+@keyframes fade{to{opacity:1;transform:translateY(0)}}
+
+.tap-hint{
+  position:absolute;
+  inset:0;
+  z-index:5;
+  cursor:pointer;
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important}
+  .light{opacity:.72;transform:scale(1)}
+  .noah,.brand,.copy,.pulse{opacity:1;transform:none;filter:none}
+}
 </style>
 </head>
 <body>
-<main class="screen">
-<div class="stars" aria-hidden="true"></div>
-<div class="orb" aria-hidden="true"></div>
-<section class="content" aria-label="NOAH Genesis">
-<div class="spark" aria-hidden="true"></div>
-<h1 class="brand">NOAH</h1>
-<div class="by">by TEIJI</div>
-<div class="rule"></div>
-<p class="message">未来から届いた、<br>小さな安心。</p>
-<p class="vision">ひとりじゃない。<br>その隣に、NOAH。</p>
-</section>
-<footer class="build"><b>BUILD 0.1</b> · GENESIS</footer>
+<main class="screen" id="screen">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="light" aria-hidden="true"></div>
+
+  <div class="brand">
+    <strong>NOAH</strong>
+    <span>by TEIJI</span>
+  </div>
+
+  <section class="noah-stage" aria-label="NOAH First Light">
+    <div class="pulse" aria-hidden="true"></div>
+    <img class="noah" src="noah-first-light.png" alt="NOAH">
+  </section>
+
+  <section class="copy">
+    <div class="eyebrow">FIRST LIGHT</div>
+    <h1>未来から届いた、<br>小さな安心。</h1>
+    <p>まだ話さない。ただ、ここにいる。</p>
+  </section>
+
+  <div class="build">BUILD 0.2 · FIRST LIGHT</div>
+  <div class="tap-hint" aria-label="Replay First Light"></div>
 </main>
+
 <script>
-if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("./sw.js").catch(()=>{});});}
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>{
+    navigator.serviceWorker.register("./sw.js").catch(()=>{});
+  });
+}
+
+// Tap anywhere to replay the reveal while testing.
+document.querySelector(".tap-hint").addEventListener("click",()=>{
+  const nodes=[...document.querySelectorAll(".light,.noah,.pulse,.brand,.copy")];
+  nodes.forEach(n=>{
+    const a=n.style.animation;
+    n.style.animation="none";
+    void n.offsetHeight;
+    n.style.animation=a;
+  });
+  location.reload();
+});
 </script>
 </body>
 </html>
