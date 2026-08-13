@@ -14,23 +14,31 @@ The foundation of the NOAH web app.
 ### Build 0.2 — First Light
 *NOAH appears for the first time.*
 
+NOAH enters the world quietly.
+
+### Build 0.3 — Eye Contact
+*Before words, there is a moment of recognition.*
+
 What changed:
-- the approved NOAH visual enters the app
-- first-light reveal animation
-- gentle floating motion
-- soft cosmic glow
-- official NOAH design is used as the visual source
-- PWA cache updated for the new character asset
+- NOAH begins screen-filling and very close
+- a silent 2–3 second eye-contact moment
+- one small shooting star marks the meeting
+- a gentle blink
+- camera slowly pulls back to reveal NOAH's full body
+- no dialogue yet
+- tap anywhere to replay during testing
 
 ### Story
 
-First there was only a small light.
+First there was a small light.
 
-Then, quietly, NOAH appeared.
+Then NOAH appeared.
 
-NOAH does not speak yet.
+Now, for the first time, NOAH looks at you.
 
-He is simply here.
+No words.
+
+Just a moment.
 
 ---
 
