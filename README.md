@@ -21,13 +21,16 @@
 ### Build 0.3.2 — Dark Blend
 *Let NOAH dissolve into the night, not into a rectangle.*
 
+### Build 0.3.3 — Clean Cut
+*Remove the background. Keep only NOAH.*
+
 Refinements:
-- softer and darker compositing around NOAH
-- preserved the tail and luminous fringe better
-- reduced the visible cutout feel
-- stronger integration with the dark background
-- kept the experience screen text-free
-- still tap-anywhere replay for testing
+- removed character-side background as much as possible
+- kept tail and luminous fringe more safely
+- CSS now owns the space/background completely
+- stronger integration into the dark scene
+- no explanatory text on the experience screen
+- tap-anywhere replay retained for testing
 
 ### Design rule
 

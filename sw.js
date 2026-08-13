@@ -1,11 +1,11 @@
-const CACHE='noah-dark-blend-v1';
+const CACHE='noah-clean-cut-v1';
 const ASSETS=[
   './',
   './index.html',
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
-  './noah-dark-blend.png'
+  './noah-clean-cut.png'
 ];
 self.addEventListener('install',e=>{
   e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));
