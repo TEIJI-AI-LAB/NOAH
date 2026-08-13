@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <title>NOAH by TEIJI</title>
 <style>
-:root{--bg:#020611;--bg2:#061425}
+:root{--bg:#020611;--bg2:#051220}
 *{box-sizing:border-box}
 html,body{
   margin:0;min-height:100%;background:var(--bg);
@@ -21,67 +21,67 @@ body{min-height:100svh;overflow:hidden;-webkit-tap-highlight-color:transparent}
 .screen{
   position:relative;min-height:100svh;overflow:hidden;isolation:isolate;
   background:
-    radial-gradient(circle at 50% 43%,rgba(91,214,238,.13),transparent 30%),
-    radial-gradient(circle at 50% 82%,rgba(43,82,143,.18),transparent 40%),
+    radial-gradient(circle at 50% 44%,rgba(84,206,231,.11),transparent 31%),
+    radial-gradient(circle at 50% 82%,rgba(40,77,136,.15),transparent 40%),
     linear-gradient(180deg,var(--bg),var(--bg2));
 }
 .stars,.stars::before,.stars::after{
   content:"";position:absolute;inset:-100px;z-index:-3;pointer-events:none;
   background-image:
-    radial-gradient(circle,rgba(255,255,255,.88) 0 1px,transparent 1.6px),
-    radial-gradient(circle,rgba(119,232,255,.48) 0 1px,transparent 1.6px);
+    radial-gradient(circle,rgba(255,255,255,.84) 0 1px,transparent 1.6px),
+    radial-gradient(circle,rgba(119,232,255,.42) 0 1px,transparent 1.6px);
   background-size:93px 93px,149px 149px;
   background-position:12px 26px,46px 10px;
-  opacity:.18;animation:drift 34s linear infinite
+  opacity:.16;animation:drift 35s linear infinite
 }
-.stars::before{opacity:.09;transform:scale(1.28);animation-duration:47s}
-.stars::after{opacity:.14;transform:scale(.82);animation-duration:39s}
+.stars::before{opacity:.08;transform:scale(1.28);animation-duration:48s}
+.stars::after{opacity:.12;transform:scale(.82);animation-duration:40s}
 @keyframes drift{to{background-position:105px 119px,195px 159px}}
 
 .light{
   position:absolute;z-index:-2;left:50%;top:47%;
-  width:min(116vw,620px);aspect-ratio:1/1;
+  width:min(118vw,640px);aspect-ratio:1/1;
   transform:translate(-50%,-50%);border-radius:50%;
   background:radial-gradient(circle,
-    rgba(188,249,255,.20) 0%,
-    rgba(73,214,237,.10) 27%,
-    rgba(23,116,169,.045) 50%,
-    transparent 74%);
-  filter:blur(10px);animation:breatheLight 5.8s ease-in-out infinite
+    rgba(184,248,255,.17) 0%,
+    rgba(71,208,232,.09) 29%,
+    rgba(21,111,162,.04) 51%,
+    transparent 75%);
+  filter:blur(12px);animation:breatheLight 6s ease-in-out infinite
 }
 @keyframes breatheLight{
-  50%{transform:translate(-50%,-50%) scale(1.055);opacity:.77}
+  50%{transform:translate(-50%,-50%) scale(1.055);opacity:.74}
 }
 
 .noah-window{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden
 }
 .noah{
-  width:min(90vw,440px);height:auto;max-width:none;
+  width:min(92vw,455px);height:auto;max-width:none;
   transform-origin:50% 37%;
   opacity:0;
-  filter:drop-shadow(0 0 24px rgba(158,244,255,.18))
-         drop-shadow(0 0 50px rgba(75,192,229,.10));
+  filter:
+    drop-shadow(0 0 18px rgba(168,244,255,.11))
+    drop-shadow(0 0 38px rgba(75,189,225,.08));
   animation:
-    arrive .9s ease-out .22s forwards,
+    arrive .92s ease-out .22s forwards,
     eyeContact 4.25s cubic-bezier(.18,.78,.19,1) 1.08s forwards,
-    float 5.8s ease-in-out 5.45s infinite;
+    float 5.9s ease-in-out 5.45s infinite;
   will-change:transform,opacity
 }
 @keyframes arrive{
-  from{opacity:0;transform:scale(2.66)}
-  to{opacity:1;transform:scale(2.66)}
+  from{opacity:0;transform:scale(2.7)}
+  to{opacity:.96;transform:scale(2.7)}
 }
 @keyframes eyeContact{
-  0%,52%{transform:scale(2.66)}
-  62%{transform:scale(2.62)}
+  0%,52%{transform:scale(2.7)}
+  62%{transform:scale(2.66)}
   100%{transform:scale(1)}
 }
 @keyframes float{
   50%{transform:translateY(-7px) scale(1.006)}
 }
 
-/* one subtle shooting star = "recognition" */
 .meeting-star{
   position:absolute;left:58%;top:28%;width:4px;height:4px;border-radius:50%;
   background:#fff;box-shadow:0 0 9px #fff,0 0 22px #9cf5ff;
@@ -90,7 +90,7 @@ body{min-height:100svh;overflow:hidden;-webkit-tap-highlight-color:transparent}
 }
 .meeting-star::after{
   content:"";position:absolute;right:3px;top:2px;width:34px;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(207,251,255,.72))
+  background:linear-gradient(90deg,transparent,rgba(207,251,255,.68))
 }
 @keyframes meetingStar{
   0%{opacity:0;transform:translate(0,0) rotate(-35deg)}
@@ -98,16 +98,14 @@ body{min-height:100svh;overflow:hidden;-webkit-tap-highlight-color:transparent}
   100%{opacity:0;transform:translate(43px,-27px) rotate(-35deg)}
 }
 
-/* no developer captions or build labels on the experience screen */
 .replay{
   position:absolute;inset:0;z-index:20;border:0;padding:0;
   background:transparent;color:transparent;cursor:pointer
 }
-
-@media (max-height:720px){.noah{width:min(80vw,370px)}}
+@media (max-height:720px){.noah{width:min(82vw,382px)}}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important}
-  .noah{opacity:1;transform:scale(1)}
+  .noah{opacity:.96;transform:scale(1)}
   .meeting-star{display:none}
 }
 </style>
@@ -118,7 +116,7 @@ body{min-height:100svh;overflow:hidden;-webkit-tap-highlight-color:transparent}
   <div class="light" aria-hidden="true"></div>
 
   <section class="noah-window" aria-label="NOAH">
-    <img class="noah" src="noah-immersive.png" alt="NOAH">
+    <img class="noah" src="noah-dark-blend.png" alt="NOAH">
     <div class="meeting-star" aria-hidden="true"></div>
   </section>
 

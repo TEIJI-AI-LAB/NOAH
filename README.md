@@ -18,14 +18,16 @@
 ### Build 0.3.1 — Immersion Fix
 *Show the experience. Never explain the experience.*
 
+### Build 0.3.2 — Dark Blend
+*Let NOAH dissolve into the night, not into a rectangle.*
+
 Refinements:
-- removed the visible rectangular artwork background
-- character is composited into the scene with a cleaner transparency matte
-- removed "EYE CONTACT"
-- removed "まだ、言葉はいらない。"
-- removed build/version labels from the user-facing experience
-- screen is now only NOAH, space, light, and motion
-- retained tap-anywhere replay for development testing
+- softer and darker compositing around NOAH
+- preserved the tail and luminous fringe better
+- reduced the visible cutout feel
+- stronger integration with the dark background
+- kept the experience screen text-free
+- still tap-anywhere replay for testing
 
 ### Design rule
 
